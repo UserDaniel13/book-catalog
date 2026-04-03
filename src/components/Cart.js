@@ -4,9 +4,24 @@ function Cart({ cart, removeFromCart }) {
         <div>
             <h2>Корзина</h2>
             {cart.map((item, index) => (
-                <div key={index}>
-                    <p>{item.title}</p>
-                    <button onClick={() => removeFromCart(index)}>Удалить</button>
+                <div
+                    key={index}
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        border: "1px solid",
+                        padding: "10px",
+                        marginBottom: "10px"
+                    }}>
+
+                    <div>
+                        {item.title} — {item.author} — {item.price} руб.
+                    </div>
+
+                    <button onClick={() => removeFromCart(index)}>
+                        Удалить
+                    </button>
                 </div>
             ))}
 
