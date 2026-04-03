@@ -1,10 +1,15 @@
-function BookList({ books }) {
+function BookList({ books, addToCart }) {
     return (
         <div>
             {books.map((book) => (
-                <p key={book.id}>
-                    {book.title} — {book.author} — {book.price} руб.
-                </p>
+                <div key={book.id}>
+                    <p>
+                        {book.title} — {book.author} — {book.price} руб.
+                    </p>
+                    <button onClick={() => addToCart(book)}>
+                        Добавить в корзину
+                    </button>
+                </div>
             ))}
         </div>
     );

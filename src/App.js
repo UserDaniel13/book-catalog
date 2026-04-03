@@ -4,8 +4,11 @@ import BookList from "./components/BookList";
 import { books } from "./data";
 
 function App() {
-  <h1>Каталог книг</h1>
-  return <BookList books={books} />;
+  const [cart, setCart] = useState([]);
+  const addToCart = (book) => {
+    setCart([...cart, book]);
+  };
+  return <BookList books={books} addToCart={addToCart} />;
 }
 
 export default App;
