@@ -9,6 +9,11 @@ function App() {
   const addToCart = (book) => {
     setCart([...cart, book]);
   };
+  const removeFromCart = (index) => {
+    const newCart = cart.filter((_, i) => i !== index);
+    setCart(newCart);
+  };
+
   return (
     <Router>
       <div>
@@ -19,7 +24,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<BookList books={books} addToCart={addToCart} />} />
-          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
         </Routes>
       </div>
     </Router>
